@@ -1,6 +1,12 @@
 package com.hysf.controller;
 
+import com.hysf.dao.UserDao;
+import com.hysf.dao.impl.UserDaoImpl;
+import com.hysf.dao.impl.cartDaoImpl;
+import com.hysf.dao.impl.parentDaoImpl;
 import com.hysf.entity.User;
+import com.hysf.entity.cart;
+import com.hysf.entity.product;
 import com.hysf.service.UserService;
 import com.hysf.service.impl.UserServiceImpl;
 
@@ -9,16 +15,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 
 
 public class UserController extends BaseServlet {
-
+    cartDaoImpl cartDao = new cartDaoImpl();
     private UserService userService = new UserServiceImpl();
 
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         // 获取请求参数
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+        User user=userService.login(username, password);
+        List<cart> cart =cartDao.querycart();
+
         if (userService.login(username, password) == null) {
             // 表示登录失败
 
@@ -31,7 +42,8 @@ public class UserController extends BaseServlet {
 
             session.setAttribute("username", username);
             session.setAttribute("password", password);
-
+            session.setAttribute("id", user.getId());
+            session.setAttribute("cart",cart );
             req.getRequestDispatcher("/login_success.jsp").forward(req, resp);
         }
     }

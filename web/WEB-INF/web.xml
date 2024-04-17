@@ -3,6 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <!--===============UserController==================-->
     <servlet>
         <servlet-name>UserController</servlet-name>
         <servlet-class>com.hysf.controller.UserController</servlet-class>
@@ -10,6 +11,15 @@
     <servlet-mapping>
         <servlet-name>UserController</servlet-name>
         <url-pattern>/userController</url-pattern>
+    </servlet-mapping>
+    <!--=================cartController==================-->
+    <servlet>
+        <servlet-name>cartController</servlet-name>
+        <servlet-class>com.hysf.controller.cartController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cartController</servlet-name>
+        <url-pattern>/cartController</url-pattern>
     </servlet-mapping>
 
     <!--配置过滤器-->
@@ -25,4 +35,9 @@
         <filter-name>LoginFilter</filter-name>
         <url-pattern>/address.jsp</url-pattern>
     </filter-mapping>
+
+    <!--配置监听器-->
+    <listener>
+        <listener-class>com.hysf.dao.impl.MyServletContextListenerImpl</listener-class>
+    </listener>
 </web-app>
