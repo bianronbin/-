@@ -20,13 +20,17 @@
                     <c:forEach items="${applicationScope.categories}" var="category">
                         <h1>${category.category_name}</h1>
                         <c:if test="${not empty applicationScope.parents}">
+
                             <c:forEach items="${applicationScope.parents}" var="parent">
+
                                 <c:if test="${parent.category_id==category.category_id}">
                                     <!-- 在href中返回 parent_id,保存到param中-->
-                                    <li ><a href="catlist.jsp?parent_id=${parent.parent_id}">${parent.parent_name}</a>
+                                    <li><a href="catlist.jsp?parent_id=${parent.parent_id}">${parent.parent_name}</a>
                                     </li>
                                 </c:if>
+
                             </c:forEach>
+
                         </c:if>
                         <c:if test="${empty applicationScope.parents}">
                             <p>没有找到2级标签。</p>
@@ -56,42 +60,42 @@
                 </div>
             </div> <!-- content_top end -->
             <div class="content_list">
-                <dl>
-                    <dt><img src="images/promote-1.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">惠普商务移动应用英寸笔记本</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/promote-2.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">夏新N6 GPS真人语音导航手机 超低特价疯抢 数量有限！</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/promote-3.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">三星家庭影院 HT-TZ325 购机送好礼(超值性价比)</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/laser-pen.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">明基MP512投影机 2899元 送100元京卷 SVGA 2200流明</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/mouse.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">罗技数据1TB移动鼠标729元开抢了！</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/earphone.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">海森那尔极品耳机绝对不容错过！</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/wancom.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">亚马逊随时阅读，随时记录，时尚最佳选择！</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/frame.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">优雅相框</a></dd>
-                </dl>
-                <dl>
-                    <dt><img src="images/notebook.jpg" alt="alt"/></dt>
-                    <dd><a href="info.jsp">IBM 2009最新上网本，特色尽显</a></dd>
-                </dl>
+                    <dl>
+                        <dt><img src="images/promote-1.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">惠普商务移动应用英寸笔记本</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/promote-2.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">夏新N6 GPS真人语音导航手机 超低特价疯抢 数量有限！</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/promote-3.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">三星家庭影院 HT-TZ325 购机送好礼(超值性价比)</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/laser-pen.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">明基MP512投影机 2899元 送100元京卷 SVGA 2200流明</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/mouse.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">罗技数据1TB移动鼠标729元开抢了！</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/earphone.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">海森那尔极品耳机绝对不容错过！</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/wancom.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">亚马逊随时阅读，随时记录，时尚最佳选择！</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/frame.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">优雅相框</a></dd>
+                    </dl>
+                    <dl>
+                        <dt><img src="images/notebook.jpg" alt="alt"/></dt>
+                        <dd><a href="info.jsp">IBM 2009最新上网本，特色尽显</a></dd>
+                    </dl>
             </div><!-- content_list end -->
         </div><!-- content end -->
         <div class="sidebar">

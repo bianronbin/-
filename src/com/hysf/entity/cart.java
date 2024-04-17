@@ -6,7 +6,7 @@ package com.hysf.entity;
  * String product_name             商品名称
  * String product_amount           商品购买数量
  * double product_price            商品价格
- * boolean discounts               boolean 判断是否有折扣（1为有，默认0）
+ * int discounts                   判断是否有折扣（1为有，默认0）
  * double discount_price           商品折扣价格
  * int discount                    商品打几折（）
  */

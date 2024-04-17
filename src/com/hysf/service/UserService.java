@@ -22,6 +22,19 @@ public interface UserService {
      */
     public boolean existsUserName(String userName);
 
+    /**
+     * 没用到
+     *
+     * @return
+     */
     public List<product> queryProduct();
-    public void addProductToCart(product product,String quantity,long userId);
+
+    /**
+     * 商品加入到购物车
+     *
+     * @param product  商品信息
+     * @param quantity 商品数量
+     * @param userId   用户id
+     */
+    public void addProductToCart(product product, String quantity, long userId);
 }

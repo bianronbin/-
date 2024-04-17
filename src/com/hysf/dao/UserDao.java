@@ -36,10 +36,10 @@ public interface UserDao {
     /**
      * 保存用户信息
      *
-     * @param user 前端请求的用户信息
      * @return 返回的-1 就是失效，其余的都是影响条数
      */
     public product queryProduct(int id);
+
     public int saveUser(User user);
 
     void addUserPermissions(long userId, List<Permission> permissions);

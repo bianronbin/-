@@ -28,7 +28,6 @@ public class UserController extends BaseServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         User user=userService.login(username, password);
-        List<cart> cart =cartDao.querycart();
 
         if (userService.login(username, password) == null) {
             // 表示登录失败
@@ -43,6 +42,9 @@ public class UserController extends BaseServlet {
             session.setAttribute("username", username);
             session.setAttribute("password", password);
             session.setAttribute("id", user.getId());
+            //获取购物车信息
+            List<cart> cart =cartDao.querycart();
+            //存放到session中
             session.setAttribute("cart",cart );
             req.getRequestDispatcher("/login_success.jsp").forward(req, resp);
         }

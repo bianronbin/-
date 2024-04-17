@@ -29,10 +29,10 @@ input{border:1px solid #cccccc;}
         var street = document.getElementById("street").value;
         var address = selProvince + selCity + street + number;
 
-        // 假设父窗口的域名是相同的
+        // 返回父窗口
         window.opener.postMessage(address, 'http://localhost:8080/shop/buy.jsp');
         window.close();
-    }
+    }//返回地址信息
     window.addEventListener('message', function(event) {
         var address = event.data;
         document.getElementById("address").value = address;

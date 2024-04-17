@@ -9,7 +9,6 @@ public class LoginFilter implements Filter {
     public void init(FilterConfig fiterConfig) throws ServletException {
 
     }
-
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;

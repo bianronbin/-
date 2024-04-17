@@ -71,12 +71,7 @@ public class UserServiceImpl implements UserService {
         return userDao.queryProduct();
     }
 
-    /**
-     * @param product   商品信息
-     * @param quantity  默认值1
-     * @param quantity1 文本框里的数量
-     * @param userId    用户id
-     */
+
     @Override
     public void addProductToCart(product product, String quantity, long userId) {
         cart existingCart = cartDao.findProductInCartByUserIdAndProductId(userId, (long) product.getProduct_id());
@@ -84,6 +79,7 @@ public class UserServiceImpl implements UserService {
             // 如果商品不存在，新增商品
             cartDao.addProductToCartDate(product, quantity, userId);
         } else {
+            //如果商品在购物车中已存在则数量加1
             int quantity1 = Integer.parseInt(quantity);
             quantity1 = quantity1 + 1;
             String newQuantity = Integer.toString(quantity1);

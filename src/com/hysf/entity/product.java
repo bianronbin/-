@@ -8,7 +8,7 @@ package com.hysf.entity;
  * int category_id                属于的1级标签id
  * double product_price           商品价格
  * String seller_name             卖家用户名
- * boolean discounts              boolean判断是否有折扣（1有，默认0）
+ * int discounts                  判断是否有折扣（1有，默认0）
  * double discount_price          商品折扣价
  * int discount                   打几折
  */

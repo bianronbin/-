@@ -1,5 +1,4 @@
-﻿
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>贵美商城</title>
@@ -8,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="css/layout.css"/>
     <script type="text/javascript" src="script/jquery-1.7.2.js"></script>
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             // 绑定事件
             $("#sub_btn").click(function () {
                 // 登录名
@@ -40,7 +39,7 @@
 <%
     Object username = request.getSession().getAttribute("username");
     Object password = request.getSession().getAttribute("password");
-    if(username!= null&&password!=null){
+    if (username != null && password != null) {
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 %>

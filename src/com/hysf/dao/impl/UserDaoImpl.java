@@ -17,17 +17,11 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     }
 
     @Override
-    public User queryUserByUsernameAndPassword( String username, String password) {
+    public User queryUserByUsernameAndPassword(String username, String password) {
         String sql = "select * from user where username = ? and password = ? ";
         return queryByOne(User.class, sql, username, password);
     }
 
-    /**
-     * 通过父类标签查询数据
-     *
-     * @param
-     * @return
-     */
     @Override
     public List<product> queryProduct() {
         String sql = "select * from product ";

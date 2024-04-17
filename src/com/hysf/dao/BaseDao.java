@@ -62,12 +62,15 @@ public abstract class BaseDao {
         }
     }
 
-    //查找刚注册自增的user_id
+    /**
+     * 查找刚注册自增的user_id用来给用户赋权（没用）
+     *
+     * @return 注册的user_id
+     */
     public static long getLastInsertId() {
         // 使用 SQL 语句 SELECT LAST_INSERT_ID()
         String sql = "SELECT LAST_INSERT_ID()";
         long lastInsertId = 0; // 初始化为 -1，以避免空指针异常
-
         Connection connection = null;
         try {
             // 先创建数据库连接

@@ -1,5 +1,6 @@
 package com.hysf.Permission;
 
+//权限类（没用）
 public enum Permission {
     VIEW_PRODUCT,
     ADD_TO_CART,

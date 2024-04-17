@@ -11,7 +11,7 @@
         window.addEventListener('load', function () {
             // 监听message事件
             window.addEventListener('message', function (event) {
-                // 检查发件人是否是您期望的子窗口
+                // 检查发件人是否是的子窗口
                 if (event.origin !== 'http://localhost:8080/shop/address.jsp') {
                     // 如果不是预期的源，则拒绝接收消息
                     return;
@@ -59,24 +59,31 @@
                 <td class="w81 b">删除</td>
             </tr>
             <c:if test="${not empty sessionScope.cart}">
+                <!--totalPrice为算上折扣后的总价格，初始化为0-->
                 <c:set var="totalPrice" value="0.0" scope="session"/>
+                <!--totalSavings为减少的价钱，初始化为0-->
                 <c:set var="totalSavings" value="0.0" scope="session"/>
+
                 <c:forEach items="${sessionScope.cart}" var="cart">
                     <tr class="h26 blue">
 
                         <td><a href="info.jsp"
                                title="${cart.product_name}">&nbsp;&nbsp;&nbsp;&nbsp;${cart.product_name}</a></td>
                         <td><span class="c9">￥${cart.product_price}</span></td>
+
                         <c:if test="${cart.discounts==1}">
                             <!--判断是否打折，1为打折-->
                             <td><span class="red">￥${cart.discount_price}</span></td>
                             <td><span class="black">${cart.discount}折</span></td>
                         </c:if>
+
                         <c:if test="${cart.discounts==0}">
                             <td><span class="red">&nbsp;</span></td>
                             <td><span class="black">无折扣</span></td>
                         </c:if>
+                        <!--将每个商品价钱加到totalPrice中-->
                         <c:set var="totalPrice" value="${totalPrice + cart.product_price}" scope="session"/>
+
                         <c:if test="${cart.discounts==1}">
                             <c:set var="totalPrice"
                                    value="${totalPrice - cart.product_amount*(cart.product_price - cart.discount_price)}"
@@ -85,16 +92,17 @@
                                    value="${totalSavings + cart.product_amount*(cart.product_price - cart.discount_price)}"
                                    scope="session"/>
                         </c:if>
+                        <!-- 建立表单来提交购买商品的数量product_amount -->
                         <form action="http://localhost:8080/shop/cartController?action=updateCart" method="post">
                             <td><input name="productAmount" type="text" value="${cart.product_amount}" maxlength="4"
                                        size="3"/></td>
                             <input type="hidden" name="product_id" value="${cart.product_id}"/>
                             <td>
-                                <!-- 将按钮的类型改为 submit，以便在点击时提交表单 -->
                                 <button type="submit" id="myButton" name="action" value="save">保存
                                 </button>
                             </td>
                         </form>
+                        <!-- 点击删除，在数据库中删除数据 -->
                         <form action="http://localhost:8080/shop/cartController?action=deleteCart" method="post">
                             <input type="hidden" name="product_id" value="${cart.product_id}"/>
                             <td>
@@ -107,9 +115,9 @@
 
 
             <tr class="h26">
-
+                <!--catlist2.jsp为展示所有商品的页面-->
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;<a
-                        href="catlist.jsp?parent_id=parent_id&category_id=category_id">继续挑选商品</a></td>
+                        href="catlist2.jsp">继续挑选商品</a></td>
                 <td class="a_c" colspan="2" id="sum" class="pl58">￥${totalPrice}</td>
                 <td colspan="2">你共节省：￥${totalSavings}</td>
             </tr>
